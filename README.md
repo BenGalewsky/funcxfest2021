@@ -6,7 +6,8 @@ The notebook [KubernetesEndpoint.ipynb](KubernetesEndpoint.ipynb) contains
 the slides along with some simple cells for exercising the deployed endpoint.
 
 ## Instructions for Deploying the Endpoint
-Assumes you have a Kubernetes Cluster
+Assumes you have a Kubernetes Cluster and the 
+[helm CLI](https://helm.sh/docs/intro/quickstart/) available.
 
 1. Add the funcX helm chart repo
 ```shell

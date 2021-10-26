@@ -1,0 +1,17 @@
+image:
+  tag: main-3.7
+
+workerImage: bengal1/gdal-python:3.7-ubuntu
+workerInit: python3 -m pip install funcx-endpoint>=0.3.0
+workerNamespace: default
+logDir: /tmp/worker_logs
+
+
+initBlocks: 0
+minBlocks: 1
+maxBlocks: 2
+maxWorkersPerPod: 1
+
+detachEndpoint: true
+
+endpointUUID:

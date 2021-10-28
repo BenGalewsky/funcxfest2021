@@ -6,6 +6,31 @@ The notebook [KubernetesEndpoint.ipynb](KubernetesEndpoint.ipynb) contains
 the slides along with some simple cells for exercising the deployed endpoint.
 
 ## Instructions for Deploying the Endpoint
+The endpoint is packaged as a Helm Chart with several useful options that 
+can be set with a `values.yaml` file.
+
+## Install Your FuncX Credentials
+The first time you deploy an endpoint to your cluster, you will need to install
+your funcX tokens as a Kubernetes Secret.
+
+If you've used the funcX client, these will already be available
+in your home directory's `.funcx/credentials` folder. If not, they can easily
+be created with:
+```shell
+pip install funcx
+python -c "from funcx.sdk.client import FuncXClient; FuncXClient()"
+````
+It will prompt you with an authentication URL to visit and ask you to paste the
+resulting token.
+
+Now that you have a valid funcX token, cd to your `~/.funcx/credentials`
+directory and install the keys file as a kubernetes secret.
+
+```shell script
+kubectl create secret generic funcx-sdk-tokens --from-file=funcx_sdk_tokens.json
+```
+
+## Deploy the Helm Chart
 Assumes you have a Kubernetes Cluster and the 
 [helm CLI](https://helm.sh/docs/intro/quickstart/) available.
 
